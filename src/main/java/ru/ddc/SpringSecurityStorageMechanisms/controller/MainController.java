@@ -20,4 +20,9 @@ public class MainController {
     public String pageForAdmins() {
         return "page for admins";
     }
+
+    @GetMapping("/read_profile")
+    public String pageForReadProfile() {
+        return "read profile page";
+    }
 }
