@@ -2,9 +2,6 @@ package ru.ddc.SpringSecurityStorageMechanisms.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import java.security.Principal;
 
 @RestController
 public class MainController {
@@ -15,8 +12,12 @@ public class MainController {
     }
 
     @GetMapping("/authenticated")
-    public String pageForAuthenticatedUsers(Principal principal) {
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return "secured part of web service: " + principal.getName();
+    public String pageForAuthenticatedUsers() {
+        return "page for authenticated";
+    }
+
+    @GetMapping("/only_for_admins")
+    public String pageForAdmins() {
+        return "page for admins";
     }
 }
